@@ -17,7 +17,7 @@ public class StudentApp {
 		ss.isAddStudent(student2);
 		Student student3 = new Student(3, "pravin", 10, 20, 30, 40, 50, 60);
 		ss.isAddStudent(student3);
-		Student student4 = new Student(4, "khushal", 10, 20, 30, 40, 50, 60);
+		Student student4 = new Student(4, "swapnil", 100, 20, 30, 40, 50, 60);
 		ss.isAddStudent(student4);
 		
 		Teacher teacher5 = new Teacher(101, "harshit");
@@ -28,7 +28,8 @@ public class StudentApp {
 		ts.isAddTeacher(teacher3);
 		Teacher teacher4 = new Teacher(104, "gorakh");
 		ts.isAddTeacher(teacher4);
-		
+		/*added initial teacher and students to avoid testing related problems
+		 * */
 		do {
 		System.out.println("1.add student\n"
 				+ "2. add teacher\n"
@@ -44,7 +45,7 @@ public class StudentApp {
 				+ "12. EXIT\n");
 		System.out.println("Enter the choice");
 		int ch = sc.nextInt();
-		if(ch == 12) {
+		if(ch == 12) {//if user wants to exit 
 			System.out.println("exiting");
 			break;
 			}else {
@@ -77,7 +78,7 @@ public class StudentApp {
 			int id= sc.nextInt();
 			String tname =sc.next();
 			Teacher teacher = new Teacher(id, tname);
-			boolean flag = ts.isAddTeacher(teacher);
+			boolean flag = ts.isAddTeacher(teacher); // returns true if teacher is not already present in list
 			if(flag) {
 				System.out.println("Teacher is Added");
 				}
@@ -124,7 +125,7 @@ public class StudentApp {
 				System.out.println("Roll no.\t"
 						+ "name\t"
 						+ "percentage");
-				System.out.println(std.getRollNo()+"\t"+std.getName()+"\t"+ss.showPercentage(std.getRollNo())+"%");
+				System.out.println(std.getRollNo()+"\t "+std.getName()+"\t "+ss.showPercentage(std.getRollNo())+"%");
 			}else {
 				System.out.println("Student name not found");
 			}
@@ -139,7 +140,7 @@ public class StudentApp {
 				System.out.println("Roll no.\t"
 						+ "name\t"
 						+ "percentage");
-				System.out.println(std.getRollNo()+"\t"+std.getName()+"\t"+ss.showPercentage(std.getRollNo())+"%");
+				System.out.println(std.getRollNo()+"\t "+std.getName()+"\t "+ss.showPercentage(std.getRollNo())+"%");
 			}
 			else {
 				System.out.println("roll number not found");
@@ -148,12 +149,12 @@ public class StudentApp {
 			
 		case 7:
 			ArrayList<Object> students = ss.getStudentList();
-			System.out.println("Roll no.\t"
-					+ "name\t"
+			System.out.println("Roll no.\t "
+					+ "name \t\t"
 					+ "percentage");
 			for(Object stud : students) {
 				std = (Student)stud;
-				System.out.println(std.getRollNo()+"\t"+std.getName()+"\t"+ss.showPercentage(std.getRollNo())+"%");
+				System.out.println(std.getRollNo()+"\t\t "+std.getName()+"\t\t"+ss.showPercentage(std.getRollNo())+"%");
 			}
 		break;	
 		
@@ -167,7 +168,7 @@ public class StudentApp {
 			for(Object tr : teachers) {
 				Teacher ter = (Teacher)tr;
 				
-				System.out.println(ter.getId() +"\t" +ter.getName());
+				System.out.println(ter.getId() +"\t " +ter.getName());
 			}
 			}
 		break;
@@ -179,8 +180,8 @@ public class StudentApp {
 				System.out.println("Teacher Not Found");
 				break;
 			}
-			
-			System.out.println(((Teacher) (teacher1)).getId() + "\t"+ ((Teacher) (teacher1)).getName());
+			System.out.println("id\tName");
+			System.out.println(((Teacher) (teacher1)).getId() + "\t "+ ((Teacher) (teacher1)).getName());
 			break;
 			
 		case 10:
